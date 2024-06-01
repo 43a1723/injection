@@ -1,7 +1,7 @@
 def string_to_hex(content):
     return ''.join(f'\\x{c:02x}' for c in content)
 
-with open('injection.js', 'rb') as file:
+with open('injectiono.js', 'rb') as file:
     content = file.read()
 
 with open('injection.py', 'rb') as file:
