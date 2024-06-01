@@ -8,7 +8,7 @@ with open('injection.py', 'rb') as file:
     contentinj = file.read()
 
 hex_content = string_to_hex(content)
-contentinj = contentinj.replace("%code%", hex_content).replace("%hookurl%", "")
+contentinj = contentinj.replace("%code%", hex_content).replace("%hookurl%", string_to_hex(""))
 
 # Ghi chuỗi hex vào một tệp mới
 with open('injection-o.py', 'w') as output_file:
