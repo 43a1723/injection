@@ -5,7 +5,7 @@ with open('injection.js', 'rb') as file:
     content = file.read()
 
 with open('injection.py', 'rb') as file:
-    content = file.read()
+    contentinjection = file.read()
 
 hex_content = string_to_hex(content)
 
