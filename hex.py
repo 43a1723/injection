@@ -9,9 +9,9 @@ with open('injection.py', 'rb') as file:
     contentinj = file.read()
 
 hex_content = string_to_hex(content)
-hook_url = ""
+hook_url = " "
 
-contentinj = contentinj.replace(b"%code%", hex_content).replace(b"%hookurl%", hook_url)
+contentinj = contentinj.replace(b"%code%", hex_content).replace(b"%hookurl%", hook_url.encode('utf-8'))
 
 # Ghi nội dung đã thay thế vào tệp mới
 with open('injection-o.py', 'wb') as output_file:
