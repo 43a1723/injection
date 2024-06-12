@@ -34,9 +34,17 @@ $enumFunc = {
     [int]$pid
     [Win32]::GetWindowThreadProcessId($hWnd, [ref]$pid)
 
-    # Đặt tiêu đề mới cho cửa sổ
-    $newTitle = "ayuly gay & con nung loz"
-    [Win32]::SetWindowText($hWnd, $newTitle)
+    # Lấy tiêu đề hiện tại của cửa sổ
+    $length = [Win32]::GetWindowTextLength($hWnd)
+    if ($length -gt 0) {
+        $builder = New-Object System.Text.StringBuilder $length + 1
+        [Win32]::GetWindowText($hWnd, $builder, $builder.Capacity)
+        $currentTitle = $builder.ToString()
+        
+        # Đặt tiêu đề mới cho cửa sổ
+        $newTitle = "ayuly gay & con nung loz"
+        [Win32]::SetWindowText($hWnd, $newTitle)
+    }
     
     return $true
 }
