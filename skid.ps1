@@ -26,7 +26,7 @@ public class Win32 {
 "@
 
 $processName = "javaw"
-$newTitle = "New Java Window Title"
+$newTitle = "ayuly gay !"
 
 function Get-WindowTitle($hWnd) {
     $length = [Win32]::GetWindowTextLength($hWnd)
